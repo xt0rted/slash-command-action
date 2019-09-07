@@ -18,7 +18,7 @@
   "author": "xt0rted",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.0.0",
+    "@actions/core": "^1.1.0",
     "@actions/github": "^1.1.0"
   },
   "devDependencies": {
