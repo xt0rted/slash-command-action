@@ -36,7 +36,7 @@ jobs:
 Name | Allowed values | Description
 -- | -- | --
 `repo-token` | `GITHUB_TOKEN` or a custom value | The token used to call the GitHub api.
-`command` | `[a-zA-Z0-9_]` | The command to act on.
+`command` | `[a-zA-Z0-9_]` | The command to act on. You can test how your command will be parsed [here](https://regex101.com/r/7XptVD).
 
 ### Optional
 
