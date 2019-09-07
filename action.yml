@@ -1,0 +1,49 @@
+name: "Slash Commands"
+
+description: "Check comments for /commands"
+
+author: "xt0rted"
+
+branding:
+  icon: "terminal"
+  color: "white"
+
+inputs:
+  repo-token:
+    description: The GITHUB_TOKEN secret
+    required: true
+
+  command:
+    description: The command to act on
+    required: true
+
+  reaction:
+    description: Responds to the comment with a reaction
+    required: false
+    default: "true"
+
+  reaction-type:
+    description: The reaction type to use
+    required: false
+    default: "+1"
+
+  allow-edits:
+    description: If the command should run on issue edits
+    required: false
+    default: "false"
+
+  permission-level:
+    description: The level of repo permission the user needs to trigger the command
+    require: false
+    default: "write"
+
+outputs:
+  command-name:
+    description: The name of the command
+
+  command-arguments:
+    description: The arguments of the command
+
+runs:
+  using: "node12"
+  main: "lib/main.js"

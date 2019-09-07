@@ -1,0 +1,13 @@
+{
+  "action": "created",
+  "comment": {
+    "id": 123,
+    "body": "/test this out"
+  },
+  "repository": {
+    "name": "slash-command-action",
+    "owner": {
+      "login": "xt0rted"
+    }
+  }
+}

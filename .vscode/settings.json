@@ -1,0 +1,9 @@
+{
+  "jest.showCoverageOnLoad": true,
+  "jest.coverageFormatter": "GutterFormatter",
+    "cSpell.words": [
+        "Octokit",
+        "gravatar",
+        "repos"
+    ]
+}

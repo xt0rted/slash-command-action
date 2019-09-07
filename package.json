@@ -1,0 +1,34 @@
+{
+  "name": "slash-command-action",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Check issue or pull request comments for `/commands` and trigger or block workflows based on them.",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xt0rted/slash-command-action.git"
+  },
+  "keywords": [
+    "actions"
+  ],
+  "author": "xt0rted",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.0.0",
+    "@actions/github": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/nock": "^10.0.3",
+    "@types/node": "^12.7.2",
+    "jest": "^24.9.0",
+    "jest-circus": "^24.9.0",
+    "nock": "^10.0.6",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  }
+}
