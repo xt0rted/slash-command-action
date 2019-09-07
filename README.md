@@ -1,6 +1,6 @@
 # Slash Commands Action
 
-![Build status](https://github.com/xt0rted/slash-command-action/workflows/CI/badge.svg) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=xt0rted/slash-command-action)](https://dependabot.com)
+![GitHub Actions Status](https://github.com/xt0rted/slash-command-action/workflows/CI/badge.svg) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=xt0rted/slash-command-action)](https://dependabot.com) [![codecov](https://codecov.io/gh/xt0rted/slash-command-action/branch/master/graph/badge.svg)](https://codecov.io/gh/xt0rted/slash-command-action)
 
 Check issue or pull request comments for `/commands` and trigger or block workflows based on them.
 
