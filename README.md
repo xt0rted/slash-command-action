@@ -35,7 +35,7 @@ jobs:
 
 Name | Allowed values | Description
 -- | -- | --
-`repo-token` | `GITHUB_TOKEN` or a custom value | The token to used to leave reactions.
+`repo-token` | `GITHUB_TOKEN` or a custom value | The token used to call the GitHub api.
 `command` | `[a-zA-Z0-9_]` | The command to act on.
 
 ### Optional
