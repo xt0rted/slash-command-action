@@ -18,7 +18,7 @@ jobs:
       steps:
         - name: Check for Command
           id: command
-          uses: xt0rted/slash-command-action
+          uses: xt0rted/slash-command-action@v1
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             command: test
