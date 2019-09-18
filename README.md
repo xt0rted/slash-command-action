@@ -22,9 +22,10 @@ jobs:
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
             command: test
+            reaction: "true"
             reaction-type: "eyes"
-            run-on-edit: "false"
-            user-level: admin
+            allow-edits: "false"
+            permission-level: admin
         - name: Act on the command
           run: echo "The command was '${{ steps.command.outputs.command-name }}' with arguments '${{ steps.command.outputs.command-arguments }}'"
 ```
