@@ -1,12 +1,5 @@
 module.exports = {
   clearMocks: true,
-  collectCoverage: true,
-  collectCoverageFrom: [
-    "**/*.ts",
-    "!lib/**",
-    "!**/node_modules/**",
-  ],
-  coverageDirectory: "./coverage/",
   moduleFileExtensions: ["js", "ts"],
   testEnvironment: "node",
   testMatch: ["**/*.test.ts"],
