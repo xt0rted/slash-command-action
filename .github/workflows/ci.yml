@@ -8,6 +8,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node: [12, 13]
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
@@ -15,7 +19,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: ${{ matrix.node }}
 
       - name: Version Info
         run: |
