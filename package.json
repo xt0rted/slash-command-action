@@ -24,10 +24,10 @@
   "devDependencies": {
     "@types/jest": "^24.9.0",
     "@types/node": "^13.5.0",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "jest-circus": "^24.9.0",
     "nock": "^11.7.2",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^25.0.0",
     "typescript": "^3.7.2"
   }
 }
