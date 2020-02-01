@@ -31,7 +31,7 @@ jobs:
         run: npm test
 
       - name: Upload Test Coverage
-        uses: codecov/codecov-action@v1.0.2
+        uses: codecov/codecov-action@v1.0.5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/clover.xml
