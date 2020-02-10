@@ -33,6 +33,6 @@
     "jest-circus": "^25.1.0",
     "nock": "^11.8.2",
     "ts-jest": "^25.2.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.5"
   }
 }
