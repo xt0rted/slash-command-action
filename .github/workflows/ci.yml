@@ -25,14 +25,11 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: NPM Install
-        run: npm ci
+      - run: npm ci
 
-      - name: NPM Build
-        run: npm run build
+      - run: npm test
 
-      - name: NPM Test
-        run: npm test
+      - run: npm run build
 
       - name: Upload Test Coverage
         uses: codecov/codecov-action@v1.0.5

@@ -6,9 +6,11 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
+    "jest": "jest --coverage",
+    "lint": "tsc --noEmit",
     "package": "ncc build src/main.ts",
     "release": "npm run package && git add -f dist/",
-    "test": "tsc --noEmit && jest --coverage"
+    "test": "npm run lint && npm run jest"
   },
   "repository": {
     "type": "git",
