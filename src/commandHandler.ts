@@ -88,7 +88,7 @@ export class CommandHandler {
 
     if (context.payload.action === "edited") {
       if (this.allowEdits) {
-        setFailed("Comment was edited and allow edits is enabled");
+        debug("Comment was edited and allow edits is enabled");
 
         return true;
       }
