@@ -44,6 +44,9 @@ outputs:
   command-arguments:
     description: The arguments of the command
 
+  has-command:
+    description: If a command was found in the comment
+
 runs:
   using: "node12"
   main: "dist/index.js"
