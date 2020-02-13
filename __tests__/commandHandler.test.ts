@@ -73,8 +73,6 @@ describe("commandHandler", () => {
     });
 
     it("should return false when correct slash command but incorrect repo access", async () => {
-      const mockedSetOutput = core.setOutput as jest.Mock<typeof core.setOutput>;
-
       context.payload = require(join(__dirname, "payloads", "created.json"));
 
       const commandHandler = new CommandHandler(
