@@ -46,7 +46,7 @@ export class CommandHandler {
     const commandResults = this.command.checkComment(comment.body);
 
     if (!commandResults) {
-      setFailed("Comment didn't contain a valid slash command");
+      debug("Comment didn't contain a valid slash command");
 
       return false;
     }
@@ -89,7 +89,7 @@ export class CommandHandler {
         return true;
       }
 
-      setFailed("Comment was edited and allow edits is disabled, no action to take");
+      debug("Comment was edited and allow edits is disabled, no action to take");
 
       return false;
     }

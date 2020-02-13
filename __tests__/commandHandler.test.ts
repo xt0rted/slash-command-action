@@ -37,7 +37,7 @@ describe("commandHandler", () => {
       );
 
       await expect(commandHandler.process()).resolves.toBe(false);
-      expect(process.exitCode).toBe(core.ExitCode.Failure);
+      expect(process.exitCode).toBeUndefined();
     });
 
     it("should return false when no slash command in comment", async () => {
@@ -53,7 +53,7 @@ describe("commandHandler", () => {
       );
 
       await expect(commandHandler.process()).resolves.toBe(false);
-      expect(process.exitCode).toBe(core.ExitCode.Failure);
+      expect(process.exitCode).toBeUndefined();
     });
 
     it("should return false when incorrect slash command", async () => {
@@ -69,7 +69,7 @@ describe("commandHandler", () => {
       );
 
       await expect(commandHandler.process()).resolves.toBe(false);
-      expect(process.exitCode).toBe(core.ExitCode.Failure);
+      expect(process.exitCode).toBeUndefined();
     });
 
     it("should return false when correct slash command but incorrect repo access", async () => {
@@ -222,7 +222,7 @@ describe("commandHandler", () => {
       );
 
       expect(commandHandler.shouldRunForAction()).toBe(false);
-      expect(process.exitCode).toBe(core.ExitCode.Failure);
+      expect(process.exitCode).toBeUndefined();
     });
 
     it("returns 'false' when action is 'deleted'", () => {
