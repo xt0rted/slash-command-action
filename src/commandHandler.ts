@@ -7,17 +7,13 @@ import {
   context,
   GitHub,
 } from "@actions/github";
-import { Response as OctokitResponse } from "@octokit/rest";
+import type { Octokit } from "@octokit/rest";
 
 import { Command } from "./command";
 import { Reaction } from "./reaction";
 import { checkPermission } from "./permission";
 
-import {
-  PermissionLevel,
-  CollaboratorPermissionLevel,
-  CommentEvent,
-} from "./interfaces";
+import type { PermissionLevel, CommentEvent } from "./interfaces";
 
 export class CommandHandler {
   private readonly command: Command;
@@ -104,12 +100,12 @@ export class CommandHandler {
   }
 
   public async permissionLevel(): Promise<PermissionLevel> {
-    const actorAccess: OctokitResponse<CollaboratorPermissionLevel> = await this.client.repos.getCollaboratorPermissionLevel({
+    const actorAccess: Octokit.Response<Octokit.ReposGetCollaboratorPermissionLevelResponse> = await this.client.repos.getCollaboratorPermissionLevel({
       ...context.repo,
       username: context.actor
     });
 
-    const actorPermissionLevel: PermissionLevel = actorAccess.data.permission;
+    const actorPermissionLevel = actorAccess.data.permission as PermissionLevel;
 
     return actorPermissionLevel;
   }

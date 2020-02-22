@@ -30,7 +30,7 @@ describe("commandHandler", () => {
       context.payload = require(join(__dirname, "payloads", "edited.json"));
 
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "format",
         /* addReaction */ false,
         /* reactionType */ "+1",
@@ -45,7 +45,7 @@ describe("commandHandler", () => {
       context.payload = require(join(__dirname, "payloads", "created-no-command.json"));
 
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "format",
         /* addReaction */ false,
         /* reactionType */ "+1",
@@ -60,7 +60,7 @@ describe("commandHandler", () => {
       context.payload = require(join(__dirname, "payloads", "created.json"));
 
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "format",
         /* addReaction */ false,
         /* reactionType */ "+1",
@@ -77,7 +77,7 @@ describe("commandHandler", () => {
       context.payload = require(join(__dirname, "payloads", "created.json"));
 
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "test",
         /* addReaction */ false,
         /* reactionType */ "+1",
@@ -98,7 +98,7 @@ describe("commandHandler", () => {
       context.payload = require(join(__dirname, "payloads", "created.json"));
 
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "test",
         /* addReaction */ false,
         /* reactionType */ "+1",
@@ -124,7 +124,7 @@ describe("commandHandler", () => {
       context.payload = require(join(__dirname, "payloads", "created.json"));
 
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "test",
         /* addReaction */ true,
         /* reactionType */ "eyes",
@@ -152,7 +152,7 @@ describe("commandHandler", () => {
       context.payload = require(join(__dirname, "payloads", "created.json"));
 
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "test",
         /* addReaction */ false,
         /* reactionType */ "+1",
@@ -178,7 +178,7 @@ describe("commandHandler", () => {
       context.payload = require(join(__dirname, "payloads", "created.json"));
 
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "format",
         /* addReaction */ false,
         /* reactionType */ "+1",
@@ -255,7 +255,7 @@ describe("commandHandler", () => {
       context.payload = require(join(__dirname, "payloads", "created.json"));
 
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "format",
         /* addReaction */ false,
         /* reactionType */ "+1",
@@ -281,7 +281,7 @@ describe("commandHandler", () => {
 
     it("skips reaction if disabled", async () => {
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "format",
         /* addReaction */ false,
         /* reactionType */ "eyes",
@@ -294,7 +294,7 @@ describe("commandHandler", () => {
 
     it("creates reaction if enabled", async () => {
       const commandHandler = new CommandHandler(
-        /* repoToken */ "",
+        /* repoToken */ "-token-",
         /* commandName */ "format",
         /* addReaction */ true,
         /* reactionType */ "eyes",
