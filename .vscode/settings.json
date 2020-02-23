@@ -5,5 +5,6 @@
         "Octokit",
         "gravatar",
         "repos"
-    ]
+    ],
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

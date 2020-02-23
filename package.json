@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "description": "Check issue or pull request comments for `/commands` and trigger or block workflows based on them.",
-  "main": "lib/main.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "jest": "jest --coverage",
+    "lint": "tsc --noEmit",
+    "package": "ncc build src/main.ts",
+    "release": "npm run package && git add -f dist/",
+    "test": "npm run lint && npm run jest"
   },
   "repository": {
     "type": "git",
@@ -18,16 +22,17 @@
   "author": "xt0rted",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.1.0",
-    "@actions/github": "^1.1.0"
+    "@actions/core": "^1.2.2",
+    "@actions/github": "^2.1.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/node": "^12.7.4",
-    "jest": "^24.9.0",
-    "jest-circus": "^24.9.0",
-    "nock": "^11.3.3",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.6.2"
+    "@types/jest": "^25.1.3",
+    "@types/node": "^13.7.4",
+    "@zeit/ncc": "^0.21.1",
+    "jest": "^25.1.0",
+    "jest-circus": "^25.1.0",
+    "nock": "^12.0.1",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.2"
   }
 }
