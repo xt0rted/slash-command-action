@@ -3,26 +3,24 @@ import { join } from "path";
 import nock from "nock";
 
 import * as core from "@actions/core";
-jest.mock("@actions/core", () => {
-  return {
-    debug: jest.fn(),
-    setFailed: jest.fn(),
-    setOutput: jest.fn(),
-  };
-});
-
 import { context } from "@actions/github";
 
 import { CommandHandler } from "../src/commandHandler";
 
 describe("commandHandler", () => {
   beforeEach(() => {
+    jest.spyOn(core, "setOutput");
+
     context.action = "run1";
     context.actor = "test-user";
     context.eventName = "issue_comment";
     context.ref = "refs/heads/master";
     context.sha = "cb2fd97b6eae9f2c7fee79d5a86eb9c3b4ac80d8";
     context.workflow = "Issue comments";
+  });
+
+  afterEach(() => {
+    delete process.exitCode;
   });
 
   describe("process", () => {
@@ -39,6 +37,7 @@ describe("commandHandler", () => {
       );
 
       await expect(commandHandler.process()).resolves.toBe(false);
+      expect(process.exitCode).toBe(core.ExitCode.Failure);
     });
 
     it("should return false when no slash command in comment", async () => {
@@ -54,6 +53,7 @@ describe("commandHandler", () => {
       );
 
       await expect(commandHandler.process()).resolves.toBe(false);
+      expect(process.exitCode).toBe(core.ExitCode.Failure);
     });
 
     it("should return false when incorrect slash command", async () => {
@@ -69,6 +69,7 @@ describe("commandHandler", () => {
       );
 
       await expect(commandHandler.process()).resolves.toBe(false);
+      expect(process.exitCode).toBe(core.ExitCode.Failure);
     });
 
     it("should return false when correct slash command but incorrect repo access", async () => {
@@ -90,6 +91,7 @@ describe("commandHandler", () => {
         .reply(200, { permission: "read" });
 
       await expect(commandHandler.process()).resolves.toBe(false);
+      expect(process.exitCode).toBe(core.ExitCode.Failure);
 
       expect(scoped.isDone()).toBe(true);
     });
@@ -115,6 +117,7 @@ describe("commandHandler", () => {
         .reply(201);
 
       await expect(commandHandler.process()).resolves.toBe(true);
+      expect(process.exitCode).toBeUndefined();
 
       expect(permissionScope.isDone()).toBe(true);
       expect(reactionScope.isDone()).toBe(false);
@@ -141,6 +144,7 @@ describe("commandHandler", () => {
         .reply(201);
 
       await expect(commandHandler.process()).resolves.toBe(true);
+      expect(process.exitCode).toBeUndefined();
 
       expect(permissionScope.isDone()).toBe(true);
       expect(reactionScope.isDone()).toBe(true);
@@ -165,6 +169,7 @@ describe("commandHandler", () => {
         .reply(200, { permission: "write" });
 
       await expect(commandHandler.process()).resolves.toBe(true);
+      expect(process.exitCode).toBeUndefined();
 
       expect(scoped.isDone()).toBe(true);
 
@@ -187,6 +192,7 @@ describe("commandHandler", () => {
       );
 
       expect(commandHandler.shouldRunForAction()).toBe(true);
+      expect(process.exitCode).toBeUndefined();
     });
 
     it("returns 'true' when action is 'edited' and allowEdits is 'true'", () => {
@@ -202,6 +208,7 @@ describe("commandHandler", () => {
       );
 
       expect(commandHandler.shouldRunForAction()).toBe(true);
+      expect(process.exitCode).toBeUndefined();
     });
 
     it("returns 'false' when action is 'edited' and allowEdits is 'false'", () => {
@@ -217,6 +224,7 @@ describe("commandHandler", () => {
       );
 
       expect(commandHandler.shouldRunForAction()).toBe(false);
+      expect(process.exitCode).toBe(core.ExitCode.Failure);
     });
 
     it("returns 'false' when action is 'deleted'", () => {
@@ -232,6 +240,7 @@ describe("commandHandler", () => {
       );
 
       expect(commandHandler.shouldRunForAction()).toBe(false);
+      expect(process.exitCode).toBeUndefined();
     });
 
     it("returns 'false' when action is unknown", () => {
@@ -247,6 +256,7 @@ describe("commandHandler", () => {
       );
 
       expect(commandHandler.shouldRunForAction()).toBe(false);
+      expect(process.exitCode).toBeUndefined();
     });
   });
 
@@ -271,6 +281,7 @@ describe("commandHandler", () => {
 
       expect(scoped.isDone()).toBe(true);
       expect(result).toBe("admin");
+      expect(process.exitCode).toBeUndefined();
     });
   });
 
@@ -290,6 +301,7 @@ describe("commandHandler", () => {
       );
 
       await expect(commandHandler.createReaction(123)).resolves.toBe(false);
+      expect(process.exitCode).toBeUndefined();
     });
 
     it("creates reaction if enabled", async () => {
@@ -307,6 +319,7 @@ describe("commandHandler", () => {
         .reply(201);
 
       await expect(commandHandler.createReaction(123)).resolves.toBe(true);
+      expect(process.exitCode).toBeUndefined();
 
       expect(scoped.isDone()).toBe(true);
     });
