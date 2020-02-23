@@ -50,6 +50,12 @@ Name | Allowed values | Description
 `allow-edits` | `true`, `false` (default) | Indicates if the action should run on comment edits, or the initial comment only.
 `permission-level` | `admin`, `write` (default), `read`, `none` | The user's [permission level](https://developer.github.com/v3/repos/collaborators/#review-a-users-permission-level) needed to act on the command.
 
+## Outputs
+
+Name | Description
+-- | --
+`has-command` | If a command was found in the comment. Will be a string value of `true` or `false`.
+
 ## License
 
 The scripts and documentation in this project are released under the [MIT License](LICENSE)
