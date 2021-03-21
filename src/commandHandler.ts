@@ -5,20 +5,21 @@ import {
 } from "@actions/core";
 import {
   context,
-  GitHub,
+  getOctokit,
 } from "@actions/github";
-import type { Octokit } from "@octokit/rest";
 
 import { Command } from "./command";
 import { Reaction } from "./reaction";
 import { checkPermission } from "./permission";
+
+import type { GitHub } from "@actions/github/lib/utils";
 
 import type { PermissionLevel, CommentEvent } from "./interfaces";
 
 export class CommandHandler {
   private readonly command: Command;
   private readonly reaction: Reaction;
-  private readonly client: GitHub;
+  private readonly client: InstanceType<typeof GitHub>;
 
   constructor(
     repoToken: string,
@@ -30,7 +31,7 @@ export class CommandHandler {
   ) {
     this.command = new Command(commandName);
     this.reaction = new Reaction(reactionType);
-    this.client = new GitHub(repoToken);
+    this.client = getOctokit(repoToken);
   }
 
   public async process(): Promise<boolean> {
@@ -42,7 +43,7 @@ export class CommandHandler {
 
     debug("Getting the comment and checking it for a command");
 
-    const comment: CommentEvent = context.payload["comment"];
+    const comment = context.payload.comment as CommentEvent;
     const commandResults = this.command.checkComment(comment.body);
 
     if (!commandResults) {
@@ -100,7 +101,7 @@ export class CommandHandler {
   }
 
   public async permissionLevel(): Promise<PermissionLevel> {
-    const actorAccess: Octokit.Response<Octokit.ReposGetCollaboratorPermissionLevelResponse> = await this.client.repos.getCollaboratorPermissionLevel({
+    const actorAccess = await this.client.repos.getCollaboratorPermissionLevel({
       ...context.repo,
       username: context.actor
     });
