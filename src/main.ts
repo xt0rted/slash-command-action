@@ -15,7 +15,6 @@ export async function run(): Promise<void> {
     ).process();
   } catch (error) {
     core.setFailed(error.message);
-    throw error;
   }
 }
 
