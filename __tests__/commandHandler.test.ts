@@ -20,7 +20,7 @@ describe("commandHandler", () => {
     context.action = "run1";
     context.actor = "test-user";
     context.eventName = "issue_comment";
-    context.ref = "refs/heads/master";
+    context.ref = "refs/heads/main";
     context.sha = "cb2fd97b6eae9f2c7fee79d5a86eb9c3b4ac80d8";
     context.workflow = "Issue comments";
   });
