@@ -1,3 +1,5 @@
+import * as core from "@actions/core";
+
 import * as main from "../src/main";
 import { CommandHandler } from "../src/commandHandler";
 
@@ -27,15 +29,23 @@ describe("main", () => {
   });
 
   it("throws if repo-token isn't provided", async () => {
+    const setFailedSpy = jest.spyOn(core, "setFailed");
+
     delete process.env["INPUT_REPO-TOKEN"];
 
-    await expect(main.run()).rejects.toThrow('repo-token');
+    await main.run();
+
+    expect(setFailedSpy).toHaveBeenCalledWith("Input required and not supplied: repo-token");
   });
 
   it("throws if command isn't provided", async () => {
+    const setFailedSpy = jest.spyOn(core, "setFailed");
+
     delete process.env["INPUT_COMMAND"];
 
-    await expect(main.run()).rejects.toThrow('command');
+    await main.run();
+
+    expect(setFailedSpy).toHaveBeenCalledWith("Input required and not supplied: command");
   });
 
   it("calls 'process'", async () => {
