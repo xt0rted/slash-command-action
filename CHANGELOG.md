@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Bumped `@actions/core` from 1.2.2 to 1.2.6
+- Bumped `@actions/core` from 1.2.2 to 1.2.7
 - Bumped `@actions/github` from 2.1.1 to 4.0.0
 
 ## Version 1.1.0
