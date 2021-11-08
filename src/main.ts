@@ -1,4 +1,5 @@
 import {
+  getBooleanInput,
   getInput,
   setFailed,
 } from "@actions/core";
@@ -11,9 +12,9 @@ export async function run(): Promise<void> {
     await new CommandHandler(
       getInput("repo-token", { required: true }),
       getInput("command", { required: true }),
-      getInput("reaction") === "true",
+      getBooleanInput("reaction"),
       getInput("reaction-type"),
-      getInput("allow-edits") === "true",
+      getBooleanInput("allow-edits"),
       getInput("permission-level") as PermissionLevel,
     ).process();
   } catch (error) {
