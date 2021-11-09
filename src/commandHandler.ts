@@ -101,7 +101,7 @@ export class CommandHandler {
   }
 
   public async permissionLevel(): Promise<PermissionLevel> {
-    const actorAccess = await this.client.repos.getCollaboratorPermissionLevel({
+    const actorAccess = await this.client.rest.repos.getCollaboratorPermissionLevel({
       ...context.repo,
       username: context.actor
     });
@@ -116,7 +116,7 @@ export class CommandHandler {
       return false;
     }
 
-    await this.client.reactions.createForIssueComment({
+    await this.client.rest.reactions.createForIssueComment({
       ...context.repo,
       comment_id: commentId,
       content: this.reaction.type,
