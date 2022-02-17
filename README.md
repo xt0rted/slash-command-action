@@ -1,6 +1,7 @@
 # Slash Commands Action
 
-[![CI](https://github.com/xt0rted/slash-command-action/workflows/CI/badge.svg)](https://github.com/xt0rted/slash-command-action/actions/workflows/ci.yml)
+[![CI](https://github.com/xt0rted/slash-command-action/workflows/CI/badge.svg?branch=main)](https://github.com/xt0rted/slash-command-action/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/xt0rted/slash-command-action/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/xt0rted/slash-command-action/actions/workflows/codeql-analysis.yml)
 [![codecov](https://codecov.io/gh/xt0rted/slash-command-action/branch/main/graph/badge.svg)](https://codecov.io/gh/xt0rted/slash-command-action)
 
 Check issue or pull request comments for `/commands` and trigger or block workflows based on them.
