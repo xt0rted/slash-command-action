@@ -35,7 +35,7 @@ jobs:
       - run: yarn build
 
       - name: Upload Test Coverage
-        uses: codecov/codecov-action@v3.0.0
+        uses: codecov/codecov-action@v3.1.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/clover.xml
