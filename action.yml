@@ -34,7 +34,7 @@ inputs:
 
   permission-level:
     description: The level of repo permission the user needs to trigger the command
-    require: false
+    required: false
     default: "write"
 
 outputs:
