@@ -13,7 +13,7 @@ module.exports = {
 const processStdoutWrite = process.stdout.write.bind(process.stdout);
 
 process.stdout.write = (str, encoding, cb) => {
-  if (!str.match(/^::/)) {
+  if (!String(str).startsWith("::")) {
     return processStdoutWrite(str, encoding, cb);
   }
 };

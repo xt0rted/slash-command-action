@@ -1,14 +1,4 @@
-export type reactionValue =
-  | "+1"
-  | "-1"
-  | "laugh"
-  | "confused"
-  | "heart"
-  | "hooray"
-  | "rocket"
-  | "eyes";
-
-export const reactionTypes = [
+const reactionTypes = [
   "+1",
   "-1",
   "laugh",
@@ -17,7 +7,9 @@ export const reactionTypes = [
   "hooray",
   "rocket",
   "eyes",
-];
+] as const;
+
+export type reactionValue = typeof reactionTypes[number];
 
 export class Reaction {
   private _type: reactionValue;
@@ -31,7 +23,7 @@ export class Reaction {
   }
 
   private sanitize(name: string): reactionValue {
-    if (reactionTypes.includes(name)) {
+    if (reactionTypes.includes(name as any)) {
       return name as reactionValue;
     }
 

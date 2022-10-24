@@ -1,4 +1,4 @@
-import { PermissionLevel } from "./interfaces";
+import type { PermissionLevel } from "./interfaces";
 
 export enum PermissionLevels {
   none = 0,

@@ -5,7 +5,8 @@ import {
 } from "@actions/core";
 
 import { CommandHandler } from "./commandHandler";
-import { PermissionLevel } from "./interfaces";
+
+import type { PermissionLevel } from "./interfaces";
 
 export async function run(): Promise<void> {
   try {
