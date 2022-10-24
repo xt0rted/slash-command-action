@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Updated node runtime from 12 to 16
+- Updated the `repo-token` input so it defaults to `GITHUB_TOKEN`. If you're already using this value you can remove this setting from your workflow.
 
 ## [1.2.0](https://github.com/xt0rted/slash-command-action/compare/v1.1.0...v1.2.0) - 2022-10-23
 

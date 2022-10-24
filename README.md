@@ -14,6 +14,8 @@ It will only run on the initial comment, not on edits, and when the action runs 
 ```yaml
 on: issue_comment
 name: Issue Comments
+permissions:
+  issues: write
 jobs:
   check_comments:
     name: Check comments for /test
@@ -23,7 +25,6 @@ jobs:
         id: command
         uses: xt0rted/slash-command-action@v1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
           command: test
           reaction: "true"
           reaction-type: "eyes"
@@ -39,7 +40,7 @@ jobs:
 
 Name | Allowed values | Description
 -- | -- | --
-`repo-token` | `GITHUB_TOKEN` or a custom value | The token used to call the GitHub api.
+`repo-token` | `GITHUB_TOKEN` (default) or PAT | `GITHUB_TOKEN` token or a PAT.
 `command` | `[a-zA-Z0-9_]` | The command to act on. You can test how your command will be parsed [here](https://regex101.com/r/7XptVD).
 
 ### Optional
