@@ -35,11 +35,11 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - run: yarn install
+      - run: npm ci
 
-      - run: yarn test
+      - run: npm run build
 
-      - run: yarn build
+      - run: npm test
 
       - name: Upload Test Coverage
         uses: codecov/codecov-action@v3.1.1
