@@ -2,7 +2,8 @@ export type PermissionLevel =
   | "admin"
   | "write"
   | "read"
-  | "none";
+  | "none"
+  ;
 
 export interface CommentEvent {
   author_association:string;
