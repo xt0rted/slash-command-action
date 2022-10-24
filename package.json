@@ -8,9 +8,9 @@
     "build": "tsc",
     "jest": "jest --coverage",
     "lint": "tsc --noEmit",
-    "package": "ncc build src/main.ts",
-    "release": "yarn package && git add -f dist/",
-    "test": "yarn lint && yarn jest"
+    "package": "ncc build src/main.ts --source-map --license license.txt",
+    "release": "npm run package && git add -f dist/",
+    "test": "npm run lint && npm run jest"
   },
   "repository": {
     "type": "git",
