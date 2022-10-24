@@ -45,5 +45,5 @@ outputs:
     description: The arguments of the command
 
 runs:
-  using: "node12"
+  using: "node16"
   main: "dist/index.js"
