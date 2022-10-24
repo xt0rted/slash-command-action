@@ -10,8 +10,9 @@ branding:
 
 inputs:
   repo-token:
-    description: The GITHUB_TOKEN secret
+    description: GITHUB_TOKEN token or a PAT
     required: true
+    default: ${{ github.token }}
 
   command:
     description: The command to act on
