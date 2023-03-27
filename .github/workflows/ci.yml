@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3.4.0
+        uses: actions/checkout@v3.5.0
 
       - name: Install Node
         uses: actions/setup-node@v3.6.0
