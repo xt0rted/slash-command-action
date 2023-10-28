@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Bumped `@actions/core` from 1.10.0 to 1.10.1
+
 ## [2.0.0](https://github.com/xt0rted/slash-command-action/compare/v1.2.0...v2.0.0) - 2022-10-23
 
 - Updated node runtime from 12 to 16
