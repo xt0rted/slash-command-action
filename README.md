@@ -50,7 +50,7 @@ Name | Allowed values | Description
 `reaction` | `true` (default), `false` | Indicates if a reaction is left on the comment indicating it was seen.
 `reaction-type` | `+1` (default), `-1`, `laugh`, `confused`, `heart`, `hooray`, `rocket`, `eyes` | The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to leave on the comment.
 `allow-edits` | `true`, `false` (default) | Indicates if the action should run on comment edits, or the initial comment only.
-`permission-level` | `admin`, `write` (default), `read`, `none` | The user's [permission level](https://developer.github.com/v3/repos/collaborators/#review-a-users-permission-level) needed to act on the command.
+`permission-level` | `admin`, `maintain`, `write` (default), `triage`, `read`, `none` | The user's [permission level](https://developer.github.com/v3/repos/collaborators/#review-a-users-permission-level) needed to act on the command.
 
 ## License
 
