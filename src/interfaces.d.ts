@@ -1,6 +1,8 @@
 export type PermissionLevel =
   | "admin"
+  | "maintain"
   | "write"
+  | "triage"
   | "read"
   | "none"
   ;
