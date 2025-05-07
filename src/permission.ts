@@ -3,8 +3,10 @@ import type { PermissionLevel } from "./interfaces";
 export enum PermissionLevels {
   none = 0,
   read = 1,
-  write = 2,
-  admin = 3,
+  triage = 2,
+  write = 3,
+  maintain = 4,
+  admin = 5,
 }
 
 export function checkPermission(required: PermissionLevel, actual: PermissionLevel): boolean {

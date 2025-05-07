@@ -72,8 +72,6 @@ describe("commandHandler", () => {
     });
 
     it("should return false when correct slash command but incorrect repo access", async () => {
-      const mockedSetOutput = core.setOutput as jest.Mock<typeof core.setOutput>;
-
       context.payload = require(join(__dirname, "payloads", "created.json"));
 
       const commandHandler = new CommandHandler(
@@ -90,6 +88,27 @@ describe("commandHandler", () => {
         .reply(200, { permission: "read" });
 
       await expect(commandHandler.process()).resolves.toBe(false);
+
+      expect(scoped.isDone()).toBe(true);
+    });
+
+    it("should return true when repo access being used is greather than the required one", async () => {
+      context.payload = require(join(__dirname, "payloads", "created.json"));
+
+      const commandHandler = new CommandHandler(
+        /* repoToken */ "-token-",
+        /* commandName */ "test",
+        /* addReaction */ false,
+        /* reactionType */ "+1",
+        /* allowEdits */ false,
+        /* requiredPermissionLevel */ "write",
+      );
+
+      const scoped = nock("https://api.github.com")
+        .get("/repos/xt0rted/slash-command-action/collaborators/test-user/permission")
+        .reply(200, { permission: "maintain" });
+
+      await expect(commandHandler.process()).resolves.toBe(true);
 
       expect(scoped.isDone()).toBe(true);
     });
